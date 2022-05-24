@@ -40,7 +40,7 @@ namespace Business.Concrete
 
         public Blog GetById(int id)
         {
-            return _blogDal.GetByID(id);
+            throw new NotImplementedException();
         }
 
         public List<Blog> GetBlogById(int id)
@@ -51,6 +51,15 @@ namespace Business.Concrete
         public List<Blog> GetList()
         {
             return _blogDal.GetListAll();
+        }
+        public List<Blog> BlogLast3Post()
+        {
+            return _blogDal.GetListAll().Take(3).ToList();
+        }
+
+        public List<Blog> GetBlogListByWithWriter(int id)
+        {
+            return _blogDal.GetListAll(x=>x.WriterID==id);
         }
     }
 }
