@@ -7,13 +7,8 @@ using System.Threading.Tasks;
 
 namespace Business.Abstract
 {
-    public interface ICommentService
+    public interface ICommentService:IGenericService<Comment>
     {
-        void CommentAdd(Comment comment);
         List<Comment> GetList(int id);
-
-        //void CategoryDelete(Category category);
-        //void CategoryUpdate(Category category);
-        //Category GetById(int id);
     }
 }

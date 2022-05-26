@@ -18,14 +18,34 @@ namespace Business.Concrete
             _commentDal = commentDal;
         }
 
-        public void CommentAdd(Comment comment)
+        public void TAdd(Comment t)
         {
-            _commentDal.Insert(comment);
+            _commentDal.Insert(t);
         }
 
         public List<Comment> GetList(int id)
         {
-            return _commentDal.GetListAll(x=>x.BlogID==id);
+            return _commentDal.GetListAll(x => x.BlogID == id);
+        }
+
+        public Comment TGetById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Comment> GetList()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void TDelete(Comment t)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void TUpdate(Comment t)
+        {
+            throw new NotImplementedException();
         }
     }
 }

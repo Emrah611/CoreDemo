@@ -18,29 +18,39 @@ namespace Business.Concrete
             _blogDal = blogDal;
         }
 
-        public void BlogAdd(Blog blog)
+        public void TAdd(Blog t)
         {
-            _blogDal.Insert(blog);
+            _blogDal.Insert(t);
         }
 
-        public void BlogDelete(Blog blog)
+        public void TDelete(Blog t)
         {
-            _blogDal.Delete(blog);
+            _blogDal.Delete(t);
         }
 
-        public void BlogUpdate(Blog blog)
+        public void TUpdate(Blog t)
         {
-            _blogDal.Update(blog);
+            _blogDal.Update(t);
+        }
+
+        public Blog TGetById(int id)
+        {
+            return _blogDal.GetByID(id);
+        }
+
+        public List<Blog> GetList()
+        {
+            return _blogDal.GetListAll();
         }
 
         public List<Blog> GetBlogListWithCategory()
         {
             return _blogDal.GetListWithCategory();
         }
-
-        public Blog GetById(int id)
+        
+        public List<Blog> GetListWithCategoryByWriterBm(int id)
         {
-            throw new NotImplementedException();
+            return _blogDal.GetListWithCategoryByWriter(id);
         }
 
         public List<Blog> GetBlogById(int id)
@@ -48,10 +58,6 @@ namespace Business.Concrete
             return _blogDal.GetListAll(x=>x.BlogID==id);
         }
 
-        public List<Blog> GetList()
-        {
-            return _blogDal.GetListAll();
-        }
         public List<Blog> BlogLast3Post()
         {
             return _blogDal.GetListAll().Take(3).ToList();

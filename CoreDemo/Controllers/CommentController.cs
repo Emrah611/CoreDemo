@@ -25,7 +25,7 @@ namespace CoreDemo.Controllers
             p.CommentDate = DateTime.Parse(DateTime.Now.ToShortDateString());
             p.CommentStatus = true;
             p.BlogID = 2;
-            cm.CommentAdd(p);
+            cm.TAdd(p);
             return RedirectToAction("Index","Blog");
         }
         public PartialViewResult CommentListByBlog(int id)
