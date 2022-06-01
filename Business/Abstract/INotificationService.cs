@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 
 namespace Business.Abstract
 {
-    public interface IWriterService:IGenericService<Writer>
+    public interface INotificationService:IGenericService<Notification>
     {
-        List<Writer> GetWriterById(int id);
     }
 }

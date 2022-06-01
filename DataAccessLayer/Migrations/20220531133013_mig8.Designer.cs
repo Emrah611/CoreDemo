@@ -4,14 +4,16 @@ using DataAccessLayer.Concrete;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DataAccessLayer.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20220531133013_mig8")]
+    partial class mig8
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -196,36 +198,6 @@ namespace DataAccessLayer.Migrations
                     b.ToTable("Contacts");
                 });
 
-            modelBuilder.Entity("EntityLayer.Concrete.Message", b =>
-                {
-                    b.Property<int>("MessageId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("MessageDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("MessageDetails")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("MessageStatus")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Receiver")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Sender")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Subject")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("MessageId");
-
-                    b.ToTable("Messages");
-                });
-
             modelBuilder.Entity("EntityLayer.Concrete.NewsLetter", b =>
                 {
                     b.Property<int>("MailID")
@@ -246,13 +218,10 @@ namespace DataAccessLayer.Migrations
 
             modelBuilder.Entity("EntityLayer.Concrete.Notification", b =>
                 {
-                    b.Property<int>("NotificationId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("NotificationColor")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("NotificationDate")
                         .HasColumnType("datetime2");
@@ -269,7 +238,7 @@ namespace DataAccessLayer.Migrations
                     b.Property<string>("NotificationTypeSymbol")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("NotificationId");
+                    b.HasKey("Id");
 
                     b.ToTable("Notifications");
                 });

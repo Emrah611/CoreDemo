@@ -23,9 +23,14 @@ namespace Business.Concrete
             _writerDal.Insert(t);
         }
 
+        public List<Writer> GetWriterById(int id)
+        {
+            return _writerDal.GetListAll(x => x.WriterID == id);
+        }
+
         public Writer TGetById(int id)
         {
-            throw new NotImplementedException();
+            return _writerDal.GetByID(id);
         }
 
         public List<Writer> GetList()
@@ -40,7 +45,7 @@ namespace Business.Concrete
 
         public void TUpdate(Writer t)
         {
-            throw new NotImplementedException();
+            _writerDal.Update(t);
         }
     }
 }
